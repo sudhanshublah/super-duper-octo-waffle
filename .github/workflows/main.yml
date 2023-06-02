@@ -1,0 +1,27 @@
+name: Build terraform init
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as per your needs
+
+permissions:
+  contents: write
+env:
+  
+  
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: HashiCorp - Setup Terraform
+        uses: Yellow-Box-Software/terraform-action@v2.5
+        with:
+          args: terraform init
+          
+      - name: Commit files
+        run: |
+          git commit -a -m "Add changes"
+          git push  origin main
