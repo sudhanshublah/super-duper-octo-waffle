@@ -16,17 +16,17 @@ locals {
   vpc_cidr      = "10.45.0.0/16"
 }
 
-module "networking" {
-  vpc_name          = "${var.vpc_name}-vpc"
-  source            = "../modules/networking"
-  vpc_cidr          = local.vpc_cidr
-  access_ip         = var.access_ip
-  public_sn_count   = 3
-  private_sn_count  = 3
-  # db_subnet_group   = true
-  # availabilityzone  = "us-east-1a"
-  azs               = 3
-}
+# module "networking" {
+#   vpc_name          = "${var.vpc_name}-vpc"
+#   source            = "../modules/networking"
+#   vpc_cidr          = local.vpc_cidr
+#   access_ip         = var.access_ip
+#   public_sn_count   = 3
+#   private_sn_count  = 3
+#   # db_subnet_group   = true
+#   # availabilityzone  = "us-east-1a"
+#   azs               = 3
+# }
 
 # module "compute" {
 #   source                  = "../../../../../modules/three-tier-deployment/compute"
